@@ -1,15 +1,15 @@
 - hosts: localhost
   become: yes
-  vars_files:
-    - ../../vault.yml
   tasks:
     - name: Docker server configuration
       include_role:
         name: docker
         tasks_from: docker_configuration.yml
 
-    - name:
-      pause:
+    - name: Create Certificates; Self-Sign keys
+      include_role:
+        name: certificates
+        tasks_from: create_certificate_keys.yml
 
     - name: Deploy Icon server services
       include_role:

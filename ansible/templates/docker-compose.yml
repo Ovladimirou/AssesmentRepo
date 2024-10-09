@@ -1,0 +1,11 @@
+version: '3'
+services:
+  iconserver:
+    image: matthiasluedtke/iconserver
+    container_name: iconserver
+    ports:
+      - "443:443"
+    volumes:
+      - ../certs/iconserver.crt:/etc/ssl/certs/iconserver.crt
+      - ../certs/iconserver.key:/etc/ssl/private/iconserver.key
+

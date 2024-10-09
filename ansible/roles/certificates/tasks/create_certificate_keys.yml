@@ -1,0 +1,18 @@
+- name: Create directory for certificates
+  ansible.builtin.file:
+    path: ../certs
+    state: directory
+
+- name: Generate private key
+  openssl_privatekey:
+    path: ../certs/iconserver.key
+    size: 4096
+    type: RSA
+    mode: 0400
+
+- name: Generate self-signed certificate
+  openssl_certificate:
+    path: ../certs/iconserver.crt
+    privatekey_path: ../certs/iconserver.key
+    provider: selfsigned
+    mode: 0444
