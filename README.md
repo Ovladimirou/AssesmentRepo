@@ -36,10 +36,11 @@ Installation instructions:
 #ansible-playbook playbook/playbook.yml -v
 - Run "docker ps" after playbok is finished to verify that container is running
 
-WARNING: 
+!!WARNING!! 
 - You need at least git and ansible installed on the machine
 - You need to change the absolute paths of the certificate and key (due to permission errors it required absolute paths) in the 'roles/iconserver/tasks/deploy_iconserver.yml' (you will see a "#" comment where you need to change it)
 - Of course I did not uploaded certs folder with the cert and private key, however they will be generated once you run the command. folder of certs will be created in the repository
+- In order to copy certificates it required to change the owner and group. You will need to modify the roles/certificates/tasks/create_certificate_keys.yml. See '#' comments
 
 Explanation of deployment/playbook:
 -----------------------------------

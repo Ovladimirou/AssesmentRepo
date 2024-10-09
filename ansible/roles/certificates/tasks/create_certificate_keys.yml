@@ -9,6 +9,8 @@
     size: 4096
     type: RSA
     mode: 0400
+    owner: ec2-user #Change owner
+    group: ec2-user #Change group
 
 - name: Generate self-signed certificate
   openssl_certificate:
@@ -16,3 +18,5 @@
     privatekey_path: ../../certs/iconserver.key
     provider: selfsigned
     mode: 0444
+    owner: ec2-user #Change owner
+    group: ec2-user #Change group
