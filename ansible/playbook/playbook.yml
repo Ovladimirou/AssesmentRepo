@@ -1,0 +1,18 @@
+- hosts: localhost
+  become: yes
+  vars_files:
+    - ../../vault.yml
+  tasks:
+    - name: Docker server configuration
+      include_role:
+        name: docker
+        tasks_from: docker_configuration.yml
+
+    - name:
+      pause:
+
+    - name: Deploy Icon server services
+      include_role:
+        name: iconserver
+        tasks_from: deploy_iconserver.yml
+
